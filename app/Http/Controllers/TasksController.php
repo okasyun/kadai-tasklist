@@ -50,7 +50,7 @@ class TasksController extends Controller
     public function store(Request $request)
     {
          // タスクを作成
-        $task = new Message;
+        $task = new Task;
         $task->content = $request->content;
         $task->save();
 
@@ -103,7 +103,7 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
          // idの値でタスクを検索して取得
-        $task = Message::findOrFail($id);
+        $task = Task::findOrFail($id);
         // タスクを更新
         $task->content = $request->content;
         $task->save();
@@ -118,7 +118,7 @@ class TasksController extends Controller
     public function destroy($id)
     {
         $task = Task::findorFail($id);
-        // メッセージを削除
+        // タスクを削除
         $task->delete();
         
         // トップページへリダイレクトさせる
