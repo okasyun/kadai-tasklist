@@ -107,6 +107,9 @@ class TasksController extends Controller
         // タスクを更新
         $task->content = $request->content;
         $task->save();
+        
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
 
     /**
@@ -122,6 +125,6 @@ class TasksController extends Controller
         $task->delete();
         
         // トップページへリダイレクトさせる
-        return redirect();
+        return redirect('/');
     }
 }
